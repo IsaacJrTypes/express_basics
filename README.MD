@@ -10,3 +10,4 @@
 - In terminal, run `node -v`. If the command is not recognized, [Install LTS Version 20.11.0 of Node.js](https://nodejs.org/en/download)
 - The server uses [Express](https://www.npmjs.com/package/express) to handle site routing.
 - Any errors relating to node version incompatibility, ensure to switch to **node version 20.11.0** using [nvm](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/) or [fnm](https://www.freecodecamp.org/news/fnm-fast-node-manager/)
+- Use `npx nodemon index.js` to initiate nodemon for server development. Use **ctrl + c** to terminate nodemon execution. 
