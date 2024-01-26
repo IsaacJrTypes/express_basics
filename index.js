@@ -39,6 +39,14 @@ app.get('/foo', (req, res) => {
     res.send('and sometimes that');
 });
 
+const userRegex = /^\/user(?:\(name\)|name)?$/i; // Regex so user, username, user(name) go to same path
+
+app.get(userRegex, (req,res) => {
+    const path = req.path
+    res.type('text/plain')
+    res.send(`used ${path} to get to user page `)
+})
+
 app.use((req, res) => {
     res.type('text/plain');
     res.status(404);
