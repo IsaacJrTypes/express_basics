@@ -45,6 +45,14 @@ app.get(userRegex, (req,res) => {
     const path = req.path
     res.type('text/plain')
     res.send(`used ${path} to get to user page `)
+   
+})
+
+app.get('/user/:name', (req,res) => {
+    const param = req.params // Grabs name from url, express saves to object
+   // console.log(param)
+    res.type('text/plain');
+    res.send(`Hello ${param.name}`);
 })
 
 app.use((req, res) => {
