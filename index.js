@@ -9,7 +9,7 @@ function numGenerator() {
     const num = Math.floor(Math.random() * range); // Will only output 0 or 1
     console.log(num);
     return num;
-};
+}
 
 app.set('port', port);
 
@@ -22,7 +22,6 @@ app.get('/about', (req, res) => {
     res.type('text/plain');
     res.send('About Page');
 });
-
 
 app.get('/foo', (req, res, next) => {
     const num = numGenerator();
@@ -43,23 +42,22 @@ app.get('/user', (req, res) => {
     console.log(req.query);
     res.type('text/plain');
     res.send(`query: ${JSON.stringify(req.query)}`);
-})
+});
 
 const userRegex = /^\/user(?:\(name\)|name)?$/i; // Regex so user, username, user(name) go to same path
 
-app.get(userRegex, (req,res) => {
-    const path = req.path
-    res.type('text/plain')
-    res.send(`used ${path} to get to user page `)
-   
-})
+app.get(userRegex, (req, res) => {
+    const path = req.path;
+    res.type('text/plain');
+    res.send(`used ${path} to get to user page `);
+});
 
-app.get('/user/:name', (req,res) => {
-    const param = req.params // Grabs name from url, express saves to object
-   // console.log(param)
+app.get('/user/:name', (req, res) => {
+    const param = req.params; // Grabs name from url, express saves to object
+    // console.log(param)
     res.type('text/plain');
     res.send(`Hello ${param.name}`);
-})
+});
 
 app.use((req, res) => {
     res.type('text/plain');
